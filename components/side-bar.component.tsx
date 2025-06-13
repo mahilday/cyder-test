@@ -6,7 +6,6 @@ import {
   AppstoreOutlined,
   ContainerOutlined,
   MailOutlined,
-  PieChartOutlined,
   UsergroupAddOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";

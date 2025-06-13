@@ -72,6 +72,7 @@ const ChartContent = () => {
 
       <Line
         loading={loading}
+        key={filterType}
         {...lineChartconfig(data, mode)}
         style={{ width: "100%" }}
       />
