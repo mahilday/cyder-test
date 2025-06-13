@@ -4,7 +4,6 @@ import React from "react";
 import MetricsCards from "./metrics-card.content";
 import { Col, Divider, Row, Space, TableProps, Typography } from "antd";
 import {
-  DashboardMetrics,
   MemberStats,
   TableDataType,
 } from "@cd/types/general.type";
