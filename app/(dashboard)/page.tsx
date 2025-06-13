@@ -6,7 +6,7 @@ import { getEarningRedemptionChartData } from "../actions/charts";
 import moment from "moment";
 
 type Props = {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 const DashboardPage: React.FC<Props> = async ({ searchParams }) => {
