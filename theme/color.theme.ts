@@ -1,0 +1,31 @@
+export const cyderLightColors = {
+  primary: "#4B6CFF",
+  background: "#F5F7FA",
+  surface: "#FFFFFF",
+  textPrimary: "#1B1F2A",
+  textSecondary: "#5E6B85",
+  success: "#23C865",
+  danger: "#F04438",
+  warning: "#FFB020",
+  info: "#1A73E8",
+  cardHighlight: "#E9ECF5",
+  border: "#E1E6EF",
+  tagComplete: "#1F7CFF",
+  tagCanceled: "#F04438",
+} as const;
+
+export const cyderDarkColors = {
+  primary: "#4B6CFF",
+  background: "#0E1525",
+  surface: "#1A2332",
+  textPrimary: "#F5F7FA",
+  textSecondary: "#9BA4B5",
+  success: "#23C865",
+  danger: "#F04438",
+  warning: "#FFB020",
+  info: "#1A73E8",
+  cardHighlight: "#2D3C5D",
+  border: "#2D3A4D",
+  tagComplete: "#1F7CFF",
+  tagCanceled: "#F04438",
+} as const;

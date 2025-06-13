@@ -1,13 +1,11 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #111111;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root[data-theme="dark"] {
+  --bg-color: #1f1f1f;
+  --text-color: #ffffff;
 }
 
 html,
@@ -17,11 +15,19 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html[data-theme="dark"] body {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+html[data-theme="light"] body {
+  background-color: #ffffff;
+  color: #111;
 }
 
 * {
@@ -30,13 +36,39 @@ body {
   margin: 0;
 }
 
+.add-transition {
+  transition: all 0.4s ease-in-out;
+}
+
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  padding: 10px;
+  width: 100vw;
+}
+
+.dashboard-layout-children {
+  flex: 1;
+  width: 100%;
+  padding: 20px 5px;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
+.rounded-selection .ant-menu-item.ant-menu-item-selected {
+  border-radius: 200px;
+}
+
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+  /* html {
+    color-scheme: light;
+  } */
 }
