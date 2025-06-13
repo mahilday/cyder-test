@@ -7,7 +7,7 @@ This is the Cyder Dashboard Test project — a modern, responsive web dashboard 
 - ✅ **Modern Dashboard UI**
 - 🌙 **Dark Mode Support**
 - 📊 **Interactive Charts** (Line, Pie, Radar)
-- 📈 **Real-Time Metrics** for:
+- 📈 **Metrics** for:
   - Active Members
   - Total Earned & Redeemed Points
   - Offer Analytics
