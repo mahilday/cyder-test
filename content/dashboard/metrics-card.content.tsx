@@ -11,10 +11,11 @@ import useLoading from "@cd/hooks/loading.hook";
 import { cyderIColors } from "@cd/theme";
 import { DashboardMetrics } from "@cd/types/general.type";
 import { Flex } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 
-const MetricsCards = ({ metrics }: { metrics: DashboardMetrics | null }) => {
-  const { loading } = useLoading();
+const MetricsCards = () => {
+  const { loading, startLoading, stopLoading } = useLoading();
+  const [metrics, setMetrics] = React.useState<DashboardMetrics | null>(null);
   const { mode } = useTheme();
 
   const cyderPrimaryTextColor = cyderIColors(mode)?.primary;
@@ -22,6 +23,28 @@ const MetricsCards = ({ metrics }: { metrics: DashboardMetrics | null }) => {
     fontSize: "28px",
     color: cyderPrimaryTextColor,
   };
+
+  const fetchMetrics = async () => {
+    startLoading();
+    try {
+      // Simulate an API call
+      const res = await fetch("/api/metrics");
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await res.json();
+
+      setMetrics(data);
+    } catch (error) {
+      console.error("Error fetching metrics:", error);
+    } finally {
+      stopLoading();
+    }
+  };
+
+  useEffect(() => {
+    fetchMetrics();
+  }, []);
 
   const cardMetrics = [
     {

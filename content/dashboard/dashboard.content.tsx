@@ -20,11 +20,8 @@ import { ChartDataPoint } from "@cd/app/actions/charts";
 
 interface IDashboardContent {
   members: MemberStats[];
-  metricsData: DashboardMetrics;
   chartData: ChartDataPoint[];
 }
-
-const { Title, Text } = Typography;
 
 const columns: TableProps<TableDataType>["columns"] = [
   {
@@ -49,26 +46,6 @@ const columns: TableProps<TableDataType>["columns"] = [
     dataIndex: "balance",
     key: "balance",
   },
-  //   {
-  //     title: "Tags",
-  //     key: "tags",
-  //     dataIndex: "tags",
-  //     render: (_, { tags }) => (
-  //       <>
-  //         {tags.map((tag) => {
-  //           let color = tag.length > 5 ? "geekblue" : "green";
-  //           if (tag === "loser") {
-  //             color = "volcano";
-  //           }
-  //           return (
-  //             <Tag color={color} key={tag}>
-  //               {tag.toUpperCase()}
-  //             </Tag>
-  //           );
-  //         })}
-  //       </>
-  //     ),
-  //   },
   {
     title: "Action",
     key: "action",
@@ -79,10 +56,10 @@ const columns: TableProps<TableDataType>["columns"] = [
     ),
   },
 ];
+const { Title, Text } = Typography;
 
 const DashboardContent: React.FC<IDashboardContent> = ({
   members,
-  metricsData,
   chartData,
 }) => {
   const { mode } = useTheme();
@@ -97,7 +74,7 @@ const DashboardContent: React.FC<IDashboardContent> = ({
   return (
     <Row gutter={[20, 20]} style={{ width: "100%", height: "100%" }}>
       <Col xs={24} md={16}>
-        <MetricsCards metrics={metricsData} />
+        <MetricsCards />
         <section style={{ width: "100%" }}>
           <ChartFilterProvider>
             <ChartContent chartData={chartData} />
