@@ -4,14 +4,16 @@ import React, { useEffect, useState } from "react";
 import { Pie } from "@ant-design/charts";
 import { Skeleton, Typography } from "antd";
 import { getOfferStats } from "@cd/app/actions/offers";
-import SkeletonAvatar from "antd/es/skeleton/Avatar";
 import useLoading from "@cd/hooks/loading.hook";
+import { cyderIColors } from "@cd/theme";
+import { useTheme } from "@cd/context/theme.context";
 
 const { Title } = Typography;
 
 const OfferPieChart = () => {
   const [data, setData] = useState<{ type: string; value: number }[]>([]);
   const { startLoading, stopLoading, loading } = useLoading();
+  const { mode } = useTheme();
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -31,7 +33,7 @@ const OfferPieChart = () => {
     data,
     angleField: "value",
     colorField: "type",
-    radius: 0.8,
+    radius: 1,
     innerRadius: 0.3,
     label: {
       text: "value",
@@ -49,7 +51,7 @@ const OfferPieChart = () => {
       color: {
         title: false,
         rowPadding: 5,
-        // position: "right",
+        itemLabelFill: cyderIColors(mode).textPrimary,
       },
     },
     animate: { appear: { animation: "fade-in", duration: 600 } },
@@ -72,7 +74,7 @@ const OfferPieChart = () => {
   }
 
   return (
-    <div style={{ padding: "10px 24px" }}>
+    <div style={{ padding: "10px 24px", width: "100%" }}>
       <Title level={5}>Offer Engagement Breakdown</Title>
       <Pie {...config} />
     </div>

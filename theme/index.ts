@@ -17,21 +17,26 @@ export function getAntdTheme(mode: "light" | "dark"): ThemeConfig {
       colorError: cyderColors.danger,
       colorInfo: cyderColors.info,
       colorWarning: cyderColors.warning,
-      fontFamily: "Inter, sans-serif",
+      fontFamily: "Open Sans, sans-serif",
       fontSize: 14,
       borderRadius: 8,
     },
     components: {
       Card: {
-        colorBgContainer: cyderColors.surface,
+        colorBgContainer: cyderColors.cardHighlight,
+        colorBorder: cyderColors.border,
       },
       Layout: {
         bodyBg: cyderColors.background,
       },
       Table: {
-        colorBgContainer: cyderColors.surface,
+        colorBgContainer: cyderColors.cardHighlight,
       },
       Menu: {},
+      Select: {
+        colorBgContainer: cyderColors.background,
+        colorBorder: cyderColors.border,
+      },
       Typography: {
         colorText: cyderColors.textPrimary,
         colorTextSecondary: cyderColors.textSecondary,

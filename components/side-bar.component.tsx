@@ -31,23 +31,6 @@ const items: MenuItem[] = [
       { key: "8", label: "Option 8" },
     ],
   },
-  {
-    key: "sub2",
-    label: "Navigation Two",
-    icon: <AppstoreOutlined />,
-    children: [
-      { key: "9", label: "Option 9" },
-      { key: "10", label: "Option 10" },
-      {
-        key: "sub3",
-        label: "Submenu",
-        children: [
-          { key: "11", label: "Option 11" },
-          { key: "12", label: "Option 12" },
-        ],
-      },
-    ],
-  },
 ];
 
 const SideBarComponent: React.FC = () => {

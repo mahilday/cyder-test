@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Typography, List } from "antd";
+import { Typography, List, Divider } from "antd";
 import { getOfferStats } from "@cd/app/actions/offers";
 import { Offer } from "@cd/types/general.type";
 
@@ -25,6 +25,7 @@ const OffersAnalytics = () => {
   return (
     <div style={{ padding: "10px 24px" }}>
       <Title level={5}>Member Offer Engagement</Title>
+      <Divider size="small" orientationMargin={5} />
       {mostPopular && (
         <Text strong>
           Most Popular: {mostPopular.name} ({mostPopular.count} uses)

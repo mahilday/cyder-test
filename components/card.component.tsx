@@ -16,8 +16,8 @@ const CardComponent: FC<ICardComponentProps> = ({
   icon,
 }) => {
   return (
-    <Flex>
-      <Card loading={loading} style={{ minWidth: 300 }}>
+    <Flex flex="1 1 calc(33.333% - 16px)">
+      <Card loading={loading} style={{ width: "100%" }}>
         <Meta
           avatar={icon}
           title={value}

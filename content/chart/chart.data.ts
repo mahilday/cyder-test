@@ -36,7 +36,7 @@ export const lineChartconfig = (
 
       label: true,
       labelFontSize: 12,
-      labelFill: cyderIColors(mode)?.textSecondary,
+      labelFill: cyderIColors(mode)?.textPrimary,
       labelFontWeight: 500,
     },
 
@@ -61,7 +61,7 @@ export const lineChartconfig = (
 
       label: true,
       labelFontSize: 12,
-      labelFill: cyderIColors(mode)?.textSecondary,
+      labelFill: cyderIColors(mode)?.textPrimary,
       labelFontWeight: 500,
     },
   },

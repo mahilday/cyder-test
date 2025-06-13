@@ -11,33 +11,11 @@ import useLoading from "@cd/hooks/loading.hook";
 import { cyderIColors } from "@cd/theme";
 import { DashboardMetrics } from "@cd/types/general.type";
 import { Flex } from "antd";
-import React, { useEffect } from "react";
+import React from "react";
 
-const MetricsCards = () => {
-  const { loading, startLoading, stopLoading } = useLoading();
-  const [metrics, setMetrics] = React.useState<DashboardMetrics | null>(null);
+const MetricsCards = ({ metrics }: { metrics: DashboardMetrics | null }) => {
+  const { loading } = useLoading();
   const { mode } = useTheme();
-
-  const fetchMetrics = async () => {
-    startLoading();
-    try {
-      const res = await fetch("/api/metrics");
-      if (!res.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await res.json();
-
-      setMetrics(data);
-    } catch (error) {
-      console.error("Error fetching metrics:", error);
-    } finally {
-      stopLoading();
-    }
-  };
-
-  useEffect(() => {
-    fetchMetrics();
-  }, []);
 
   const cyderPrimaryTextColor = cyderIColors(mode)?.primary;
   const iconStyles = {
@@ -64,7 +42,7 @@ const MetricsCards = () => {
   ];
 
   return (
-    <Flex style={{ width: "100%" }} justify="space-between">
+    <Flex style={{ width: "100%", gap: "16px" }} justify="space-between">
       {cardMetrics?.map((metric, index) => (
         <CardComponent
           key={index}
