@@ -8,11 +8,11 @@ const mockMembers: Member[] = [
     redeemed: 500,
     balance: 700,
     transactions: [
-      { date: "2025-06-01", type: "earn", points: 300 },
-      { date: "2025-06-05", type: "earn", points: 500 },
-      { date: "2025-06-08", type: "redeem", points: 200 },
-      { date: "2025-06-11", type: "redeem", points: 300 },
-      { date: "2025-06-12", type: "earn", points: 400 },
+      { date: "2025-01-10", type: "earn", points: 300 },
+      { date: "2025-03-05", type: "earn", points: 500 },
+      { date: "2025-05-15", type: "redeem", points: 200 },
+      { date: "2025-07-12", type: "redeem", points: 300 },
+      { date: "2025-09-01", type: "earn", points: 400 },
     ],
   },
   {
@@ -22,10 +22,10 @@ const mockMembers: Member[] = [
     redeemed: 200,
     balance: 600,
     transactions: [
-      { date: "2025-06-02", type: "earn", points: 400 },
-      { date: "2025-06-06", type: "redeem", points: 100 },
-      { date: "2025-06-09", type: "earn", points: 400 },
-      { date: "2025-06-10", type: "redeem", points: 100 },
+      { date: "2025-02-03", type: "earn", points: 400 },
+      { date: "2025-04-08", type: "redeem", points: 100 },
+      { date: "2025-06-10", type: "earn", points: 400 },
+      { date: "2025-08-18", type: "redeem", points: 100 },
     ],
   },
   {
@@ -35,10 +35,10 @@ const mockMembers: Member[] = [
     redeemed: 1000,
     balance: 500,
     transactions: [
-      { date: "2025-06-01", type: "earn", points: 500 },
-      { date: "2025-06-04", type: "redeem", points: 300 },
-      { date: "2025-06-07", type: "earn", points: 1000 },
-      { date: "2025-06-11", type: "redeem", points: 700 },
+      { date: "2025-01-15", type: "earn", points: 500 },
+      { date: "2025-03-21", type: "redeem", points: 300 },
+      { date: "2025-06-05", type: "earn", points: 1000 },
+      { date: "2025-08-30", type: "redeem", points: 700 },
     ],
   },
   {
@@ -48,8 +48,8 @@ const mockMembers: Member[] = [
     redeemed: 0,
     balance: 400,
     transactions: [
-      { date: "2025-06-03", type: "earn", points: 200 },
-      { date: "2025-06-09", type: "earn", points: 200 },
+      { date: "2025-02-22", type: "earn", points: 200 },
+      { date: "2025-05-10", type: "earn", points: 200 },
     ],
   },
   {
@@ -59,10 +59,10 @@ const mockMembers: Member[] = [
     redeemed: 1000,
     balance: 1000,
     transactions: [
-      { date: "2025-06-01", type: "earn", points: 1000 },
-      { date: "2025-06-06", type: "redeem", points: 500 },
-      { date: "2025-06-08", type: "earn", points: 1000 },
-      { date: "2025-06-11", type: "redeem", points: 500 },
+      { date: "2025-01-05", type: "earn", points: 1000 },
+      { date: "2025-03-18", type: "redeem", points: 500 },
+      { date: "2025-06-25", type: "earn", points: 1000 },
+      { date: "2025-09-09", type: "redeem", points: 500 },
     ],
   },
   {
@@ -72,10 +72,10 @@ const mockMembers: Member[] = [
     redeemed: 300,
     balance: 350,
     transactions: [
-      { date: "2025-06-05", type: "earn", points: 300 },
-      { date: "2025-06-06", type: "redeem", points: 150 },
-      { date: "2025-06-10", type: "earn", points: 350 },
-      { date: "2025-06-12", type: "redeem", points: 150 },
+      { date: "2025-03-11", type: "earn", points: 300 },
+      { date: "2025-05-19", type: "redeem", points: 150 },
+      { date: "2025-07-14", type: "earn", points: 350 },
+      { date: "2025-09-29", type: "redeem", points: 150 },
     ],
   },
   {
@@ -85,8 +85,8 @@ const mockMembers: Member[] = [
     redeemed: 1000,
     balance: 0,
     transactions: [
-      { date: "2025-06-02", type: "earn", points: 1000 },
-      { date: "2025-06-10", type: "redeem", points: 1000 },
+      { date: "2025-04-04", type: "earn", points: 1000 },
+      { date: "2025-08-16", type: "redeem", points: 1000 },
     ],
   },
   {
@@ -96,9 +96,9 @@ const mockMembers: Member[] = [
     redeemed: 300,
     balance: 600,
     transactions: [
-      { date: "2025-06-03", type: "earn", points: 400 },
-      { date: "2025-06-07", type: "earn", points: 500 },
-      { date: "2025-06-12", type: "redeem", points: 300 },
+      { date: "2025-02-14", type: "earn", points: 400 },
+      { date: "2025-06-01", type: "earn", points: 500 },
+      { date: "2025-09-21", type: "redeem", points: 300 },
     ],
   },
   {
@@ -108,9 +108,9 @@ const mockMembers: Member[] = [
     redeemed: 150,
     balance: 550,
     transactions: [
-      { date: "2025-06-05", type: "earn", points: 300 },
-      { date: "2025-06-09", type: "redeem", points: 150 },
-      { date: "2025-06-11", type: "earn", points: 400 },
+      { date: "2025-03-08", type: "earn", points: 300 },
+      { date: "2025-06-20", type: "redeem", points: 150 },
+      { date: "2025-10-02", type: "earn", points: 400 },
     ],
   },
   {
@@ -120,10 +120,10 @@ const mockMembers: Member[] = [
     redeemed: 700,
     balance: 400,
     transactions: [
-      { date: "2025-06-01", type: "earn", points: 500 },
-      { date: "2025-06-04", type: "redeem", points: 300 },
-      { date: "2025-06-07", type: "earn", points: 600 },
-      { date: "2025-06-11", type: "redeem", points: 400 },
+      { date: "2025-01-20", type: "earn", points: 500 },
+      { date: "2025-03-30", type: "redeem", points: 300 },
+      { date: "2025-06-12", type: "earn", points: 600 },
+      { date: "2025-09-06", type: "redeem", points: 400 },
     ],
   },
 ];

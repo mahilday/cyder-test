@@ -5,7 +5,11 @@ import { getMemberBreakdown } from "../actions/members";
 const DashboardPage = async () => {
   const serverData = await getMemberBreakdown();
 
-  return <DashboardContent members={serverData} />;
+  if (!serverData || !Array.isArray(serverData)) {
+    return <div>Error loading data.</div>;
+  }
+
+  return <DashboardContent members={serverData ?? []} />;
 };
 
 export default DashboardPage;

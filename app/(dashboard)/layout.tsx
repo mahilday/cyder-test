@@ -13,6 +13,7 @@ const DashboardLayout = ({ children }: React.PropsWithChildren) => {
           height: "100%",
           padding: "0 10px",
           position: "relative",
+          overflowY: "auto",
         }}
       >
         <Header />

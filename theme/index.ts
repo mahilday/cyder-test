@@ -23,14 +23,15 @@ export function getAntdTheme(mode: "light" | "dark"): ThemeConfig {
     },
     components: {
       Card: {
-        colorBgContainer: cyderColors.cardHighlight,
+        colorBgContainer: cyderColors.surface,
       },
       Layout: {
         bodyBg: cyderColors.background,
       },
-      Menu: {
-        
+      Table: {
+        colorBgContainer: cyderColors.surface,
       },
+      Menu: {},
       Typography: {
         colorText: cyderColors.textPrimary,
         colorTextSecondary: cyderColors.textSecondary,

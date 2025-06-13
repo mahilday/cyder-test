@@ -1,31 +1,37 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Switch } from "antd";
 import { useTheme } from "@cd/context/theme.context";
 import { MoonOutlined, SunOutlined } from "@ant-design/icons";
 import { cyderIColors } from "@cd/theme";
+import { ThemeMode } from "@cd/theme/theme.manager";
 
 const ThemeSwitcher: React.FC = () => {
   const { mode: defaultMode, toggleTheme } = useTheme();
+  const [updatedMode, setUpdatedMode] = useState<ThemeMode>(defaultMode);
 
   const onChange = (checked: boolean) => {
-    const mode = checked ? "light" : "dark";
+    const mode = checked ? "dark" : "light";
     toggleTheme(mode);
-    // Optionally, you can log the theme change or perform additional actions
-    console.log(`Theme switched to ${checked ? "dark" : "light"}`);
   };
   const cyderPrimaryTextColor = cyderIColors(defaultMode).textPrimary;
   const cyderPrimaryBackgroundColor = cyderIColors(defaultMode).background;
+
+  useEffect(() => {
+    setUpdatedMode(defaultMode);
+  }, [defaultMode]);
+
   return (
     <Switch
-      defaultChecked={defaultMode === "dark"}
+      defaultChecked={updatedMode === "dark"}
       checkedChildren={<MoonOutlined />}
       unCheckedChildren={
         <div style={{ color: cyderPrimaryTextColor }}>
           <SunOutlined />
         </div>
       }
+      checked={updatedMode === "dark"}
       style={{
         backgroundColor: cyderPrimaryBackgroundColor,
         color: cyderPrimaryTextColor,

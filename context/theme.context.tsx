@@ -1,7 +1,6 @@
 "use client";
 
 import { initTheme, setTheme } from "@cd/theme/theme.manager";
-import { init } from "next/dist/compiled/webpack/webpack";
 import React, {
   createContext,
   useContext,
@@ -33,9 +32,8 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const toggleTheme = (theme: ThemeMode) => {
-    const newTheme: ThemeMode = theme === "light" ? "dark" : "light";
-    setMode(newTheme);
-    if (typeof window !== "undefined") setTheme(newTheme);
+    setMode(theme);
+    if (typeof window !== "undefined") setTheme(theme);
   };
 
   return (

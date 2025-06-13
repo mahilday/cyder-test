@@ -1,18 +1,22 @@
-'use server';
+"use server";
 
 import { mockMembers } from "@cd/lib/mock-info.data";
 
-type ChartDataPoint = {
+export type ChartDataPoint = {
   date: string;
-  earned: number;
-  redeemed: number;
+  value: number;
+  type: "earn" | "redeem";
+  member: string;
 };
 
 export async function getEarningRedemptionChartData(
   startDate?: string,
   endDate?: string
 ): Promise<ChartDataPoint[]> {
-  const dateMap: Record<string, { earned: number; redeemed: number }> = {};
+  const dateMap: Record<
+    string,
+    { earn: number; redeem: number; member: string }
+  > = {};
 
   for (const member of mockMembers) {
     for (const tx of member.transactions) {
@@ -24,21 +28,34 @@ export async function getEarningRedemptionChartData(
         continue;
       }
 
-      if (!dateMap[tx.date]) {
-        dateMap[tx.date] = { earned: 0, redeemed: 0 };
+      const key = tx.date;
+
+      if (!dateMap[key]) {
+        dateMap[key] = { earn: 0, redeem: 0, member: member.name };
       }
 
-      if (tx.type === 'earn') {
-        dateMap[tx.date].earned += tx.points;
-      } else if (tx.type === 'redeem') {
-        dateMap[tx.date].redeemed += tx.points;
+      dateMap[key].member = member.name;
+
+      if (tx.type === "earn") {
+        dateMap[key].earn += tx.points;
+      } else if (tx.type === "redeem") {
+        dateMap[key].redeem += tx.points;
       }
     }
   }
 
-  const chartData = Object.entries(dateMap)
-    .map(([date, values]) => ({ date, ...values }))
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  const chartData: ChartDataPoint[] = [];
 
-  return chartData;
+  for (const [date, { earn, redeem, member }] of Object.entries(dateMap)) {
+    if (earn > 0) {
+      chartData.push({ date, value: earn, type: "earn", member });
+    }
+    if (redeem > 0) {
+      chartData.push({ date, value: redeem, type: "redeem", member });
+    }
+  }
+
+  return chartData.sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
 }

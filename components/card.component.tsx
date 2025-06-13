@@ -17,10 +17,10 @@ const CardComponent: FC<ICardComponentProps> = ({ loading, title, value, icon })
       <Card loading={loading} style={{ minWidth: 300 }}>
         <Meta
           avatar={icon}
-          title={title}
+          title={value}
           description={
             <>
-              <p>{value}</p>
+              <p>{title}</p>
             </>
           }
         />

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import CustomProviders from "@cd/components/providers.component";
 import { ThemeProvider } from "@cd/context/theme.context";
+import { Layout } from "antd";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,7 +26,9 @@ export default function RootLayout({
       <body className={`${inter.variable}`}>
         <ThemeProvider>
           <AntdRegistry>
-            <CustomProviders>{children}</CustomProviders>
+            <CustomProviders>
+              <Layout>{children}</Layout>
+            </CustomProviders>
           </AntdRegistry>
         </ThemeProvider>
       </body>
